@@ -1,17 +1,27 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
-const { measureMemory } = require('vm');
-const inquirer = ('inquirer')
+const inquirer = require('inquirer')
+const generatePage = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
-function promptUser ()
-{
+const promptUser = () =>{
     // validate answers!!!!!!!!!!!!!!!!!!!!
     return inquirer.prompt([
         {
             type: 'input',
             name: 'projectTitle',
-            message: 'Please enter the name of your project'
+            message: 'Please enter the name of your project (Required)',
+            validate: nameInput =>
+            {
+                if (nameInput)
+                {
+                    return true;
+                } else
+                {
+                    console.log('Please enter your project name');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -44,9 +54,26 @@ function promptUser ()
             message: 'please list the contributors on this project'
         },
         {
+            type: 'comfirm',
+            name: 'confirmTests',
+            message: 'are there any test with this project',
+            default: false
+        },
+        {
             type: 'input',
-            name: 'tests',
-            message: 'are there any test with this project'
+            name: 'test',
+            message: 'please provide test links',
+            when: ({ confirmTests }) =>
+            {
+                if (confirmTests)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+                }
         },
         {
             type: 'input',
@@ -64,15 +91,39 @@ function promptUser ()
             message: 'what is your email address'
         }
     ])
-
 }
+
 const questions = [];
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+const writeFile = data =>
+{
+    fs.writeFile('README.md', data, err =>
+        {
+            if (err)
+            {
+                console.log(err);
+                return
+            }
+            else
+            {
+                console.log('Your Readme file has been created')
+            }
+        })
+    }
+    
+    // TODO: Create a function to initialize app
+    function init() {}
+    
+    // Function call to initialize app
+    init();
+    // promptUser()
+promptUser()
+    .then(answers =>
+    {
+        return generatePage(answers)
+    })
+    .then(data =>
+    {
+        return writeFile(data)
+    })
+    .then(answers => console.log(answers))
