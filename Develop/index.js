@@ -39,6 +39,12 @@ const promptUser = () =>{
             message: 'what is the project used for'
         },
         {
+            type: 'confirm',
+            name: 'licenceConfirm',
+            message: 'Did you use a license?',
+            default: false
+        },
+        {
             type: 'list',
             name: 'license',
             message: 'please choose the license used for the project',
@@ -46,7 +52,18 @@ const promptUser = () =>{
                 'ISC',
                 'MIT',
                 'Open'
-            ]
+            ],
+            when: ({ licenceConfirm }) =>
+            {
+                if (licenceConfirm)
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
         },
         {
             type: 'input',
@@ -112,12 +129,9 @@ const writeFile = data =>
     }
     
     // TODO: Create a function to initialize app
-    function init() {}
-    
-    // Function call to initialize app
-    init();
-    // promptUser()
-promptUser()
+function init ()
+{
+        promptUser()
     .then(answers =>
     {
         return generatePage(answers)
@@ -127,3 +141,8 @@ promptUser()
         return writeFile(data)
     })
     .then(answers => console.log(answers))
+    }
+    
+    // Function call to initialize app
+    init();
+    // promptUser()
