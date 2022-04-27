@@ -5,7 +5,7 @@ const generatePage = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 const promptUser = () =>{
-    // validate answers!!!!!!!!!!!!!!!!!!!!
+    // asks questions to generat the README.md
     return inquirer.prompt([
         {
             type: 'input',
@@ -26,17 +26,17 @@ const promptUser = () =>{
         {
             type: 'input',
             name: 'decription',
-            message: 'write a decription of your project'
+            message: 'Write a decription of your project'
         },
         {
             type: 'input',
             name: 'installationUsed',
-            message: 'what was the installation process'
+            message: 'What was the installation process'
         },
         {
             type: 'input',
             name: 'use',
-            message: 'what is the project used for'
+            message: 'What is the project used for'
         },
         {
             type: 'confirm',
@@ -47,7 +47,7 @@ const promptUser = () =>{
         {
             type: 'list',
             name: 'license',
-            message: 'please choose the license used for the project',
+            message: 'Please choose the license used for the project',
             choices: [
                 'ISC',
                 'MIT',
@@ -68,21 +68,21 @@ const promptUser = () =>{
         {
             type: 'input',
             name: 'contributors',
-            message: 'please list the contributors on this project'
+            message: 'Please list the contributors on this project'
         },
         {
-            type: 'comfirm',
-            name: 'confirmTests',
-            message: 'are there any test with this project',
+            type: 'confirm',
+            name: 'testConfirm',
+            message: 'Are there any test with this project',
             default: false
         },
         {
             type: 'input',
             name: 'test',
-            message: 'please provide test links',
-            when: ({ confirmTests }) =>
+            message: 'Please provide test links',
+            when: ({ testConfirm }) =>
             {
-                if (confirmTests)
+                if (testConfirm)
                 {
                     return true
                 }
@@ -90,22 +90,22 @@ const promptUser = () =>{
                 {
                     return false
                 }
-                }
+            }
         },
         {
             type: 'input',
             name: 'questions',
-            message: 'how do i submit a question'
+            message: 'How do I get a hold of you for any questions?'
         },
         {
             type: 'input',
             name: 'github',
-            message: 'what is your gitHub username'
+            message: 'What is your gitHub username'
         },
         {
             type: 'input',
             name: 'email',
-            message: 'what is your email address'
+            message: 'What is your email address'
         }
     ])
 }
