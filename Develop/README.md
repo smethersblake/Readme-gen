@@ -1,8 +1,8 @@
-# read me generator
+# Read me gen
   
   ![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg) https://opensource.org/licenses/ISC
   ## Description
-  creats a read me
+  a program to generate a readme file
 
   ## Table of Contents
   * [Installation](#Installation)
@@ -15,25 +15,25 @@
   * [Email](#Email)
 
   ## Installation
-  nodejs
+  node js
 
   ## Product
-  dfsgv
+  to make a read me file for your project
 
   ## Licence
   Used ISC
 
   ## Contributors
-  none
+  Blake Smethers
 
   ## Test
   undefined
 
   ## Questions
-  emai
+  you can email me
 
   ## GitHub
-  https://github.com/smetersblake
+  https://github.com/Smethersblake
 
   ## Email
   smethersblake@gmail.com
