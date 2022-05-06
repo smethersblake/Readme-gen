@@ -1,8 +1,8 @@
-# sadf
+# read me generator
   
-  
+  ![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg) https://opensource.org/licenses/ISC
   ## Description
-  
+  creats a read me
 
   ## Table of Contents
   * [Installation](#Installation)
@@ -15,25 +15,25 @@
   * [Email](#Email)
 
   ## Installation
-  
+  nodejs
 
   ## Product
-  
+  dfsgv
 
   ## Licence
-  Used undefined
+  Used ISC
 
   ## Contributors
-  
+  none
 
   ## Test
   undefined
 
   ## Questions
-  
+  emai
 
   ## GitHub
-  https://github.com/
+  https://github.com/smetersblake
 
   ## Email
-  
+  smethersblake@gmail.com
